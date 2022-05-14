@@ -7,7 +7,11 @@ const routes = require('./routes/routes');
 
 const app = express();
 
-connectDB();
+const env = process.env.NODE_ENV;
+
+if (env !== 'test') {
+  connectDB();
+}
 configExpress(app);
 routes(app);
 

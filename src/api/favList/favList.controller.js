@@ -1,4 +1,5 @@
 const { createOneItem } = require('../users/users.service');
+const favListModel = require('./favList.model');
 const { createOneFav, getAllFav, getOneFav } = require('./favList.service');
 
 const handlerGetAllFav = async (req, res) => {
@@ -12,6 +13,13 @@ const handlerGetAllFav = async (req, res) => {
 };
 const handlerCreateOneFav = async (req, res) => {
   const { body } = req;
+  const prevList = await favListModel.find({ name: body.name });
+  if (!body.name || !body.userId) {
+    return res.status(400).json({ message: 'Please fill in all fields' });
+  }
+  if (prevList.length > 0) {
+    return res.status(400).json({ message: 'List name already exists' });
+  }
   try {
     const newFavList = await createOneFav(body);
     return res.status(201).json(newFavList);
