@@ -27,7 +27,6 @@ const createOneItem = async (_id, userId, body) => {
     { $push: { items: body } },
     { new: true },
   );
-  console.log(updatedFavList);
   return updatedFavList;
 };
 

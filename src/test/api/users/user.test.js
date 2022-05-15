@@ -33,7 +33,7 @@ describe('Users enpoints tests', () => {
   test('should create 3 users', async () => {
     const usersPromises = initialUsers.map((user) => request.post('/api/users').send(user));
     const allResponse = await Promise.all(usersPromises);
-    userId = allResponse[0].body.user._id;
+    userId = allResponse[0].body._id;
 
     const response = await request
       .get('/api/users');
@@ -47,6 +47,6 @@ describe('Users enpoints tests', () => {
       .get(`/api/users/${userId}`);
 
     expect(response.status).toBe(200);
-    expect(response.body.user._id).toBe(userId);
+    expect(response.body._id).toBe(userId);
   });
 });
