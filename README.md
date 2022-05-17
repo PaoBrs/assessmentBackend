@@ -34,6 +34,6 @@ base route: /api/favList. Here we can proceed with different CRUD.
 | Method | Endpoint | Action | Query Param | Body
 | --- | --- | --- | --- | --- |
 | POST | / | Create favList| | { <br> &nbsp; &nbsp; "name": String, <br> &nbsp; &nbsp; "userId":ObjectId, <br> &nbsp; &nbsp;"Items"{ <br> &nbsp; &nbsp; "title": String, <br> &nbsp; &nbsp; "description" : String, <br> &nbsp; &nbsp; "link" : String <br>} }
-| GET | / | Show all user FavLists | | { <br> &nbsp; &nbsp; "name": String, <br> &nbsp; &nbsp; "userId":ObjectId, <br> &nbsp; &nbsp;"Items"{ <br> &nbsp; &nbsp; "title": String, <br> &nbsp; &nbsp; "description" : String, <br> &nbsp; &nbsp; "link" : String <br>} }
+| GET | / | Show all user FavLists | | |
 | GET | /:id | Show one Fav List | id: String |
 | POST | /api/favList/:id/add | add item to fav Lits | id: String |{ <br> &nbsp; &nbsp; "title": String, <br> &nbsp; &nbsp; "description" : String, <br> &nbsp; &nbsp; "link" : String <br>}
